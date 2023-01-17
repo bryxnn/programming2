@@ -1,5 +1,6 @@
 /* method overloading and overriding
-all the prints are called method overloading
+first class is method overloading
+public static void main is how to access class A
 */
 class A {
 
@@ -19,4 +20,36 @@ class A {
         System.out.println("");
     }
 
+    void print(String s3, int i3, float f1){
+        System.out.println("");
+    }
+
+
+
+}
+
+class B extends A {
+
+}
+
+public static void main(String args[]){
+
+    A a1 = new A();
+
+    a1.print();
+
+    Object[][] obj;
+
+    String s1 = a1.print(10);
+
+    obj = a1.print("ABCD", 18, 3.3366);
+
+}
+
+public static void main(String args[]){
+
+    B b! = new B();
+
+    b1.print();
+    
 }
