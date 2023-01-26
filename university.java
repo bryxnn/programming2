@@ -34,4 +34,12 @@ public class University {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getYearEstablished() (
+        return yearEstablished;
+    )
+
+    public void setYearEstablished(int yearEstablished) {
+        return yearEstablished;
+    }
 }
