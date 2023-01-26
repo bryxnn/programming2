@@ -1,7 +1,30 @@
 // testing push
 
+public abstract class Information {
+    public abstract void student();
+}
+
+public class firstName extends Information {
+    public void student(){
+        System.out.println("Bryan");
+    }
+}
+
+public class lastName extends Information{
+    public void student(){
+        System.out.println("Mena");
+    }
+}
+
+public static void main(String args[]){
+    firstName myFirstName = new firstName();
+    lastName myLastName = new lastName();
+    myFirstName.student();
+    myLastName.student();
+}
+
 abstract class Animal {
-    public abswtract void animalSound();
+    public abstract void animalSound();
     public void sleep() {
         System.out.println("Zzz");
     }
@@ -35,4 +58,9 @@ class Main {
         myDog.animalSound();
         myPig.sleep();
     }
+}
+
+
+abstract class studentInfo {
+    public abstract void studentFi
 }
