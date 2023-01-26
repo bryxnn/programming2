@@ -9,7 +9,6 @@ abstract class Student {
     private int semestersPassed;
     private String studyTime;
 
-    // Default constructor
     public Student() {
         this.name = "";
         this.surname = "";
@@ -20,7 +19,6 @@ abstract class Student {
         this.studyTime = "";
     }
 
-    // Constructor with input parameters
     public Student(String name, String surname, int studentID, double gpa, double cgpa, int semestersPassed) {
         this.name = name;
         this.surname = surname;
@@ -30,7 +28,6 @@ abstract class Student {
         this.semestersPassed = semestersPassed;
     }
 
-    // Setter and Getter methods
     public void setName(String name) {
         this.name = name;
     }
