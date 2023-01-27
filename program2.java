@@ -1,210 +1,152 @@
 import java.util.Scanner;
-
-abstract class Student {
-    private String name;
-    private String surname;
+abstract class Information{
+    public static Scanner keyboard = new Scanner(System.in);
+    private String firstName;
+    private String lastName;
     private int studentID;
-    private double gpa;
-    private double cgpa;
-    private int semestersPassed;
+    private double studentGPA;
+    private double studentCGPA;
+    private int studentSemesters;
     private String studyTime;
 
-    public Student() {
-        this.name = "";
-        this.surname = "";
+    public Information() {
+        this.firstName = "";
+        this.lastName = "";
         this.studentID = 0;
-        this.gpa = 0.00;
-        this.cgpa = 0.00;
-        this.semestersPassed = 0;
+        this.studentGPA = 0.00;
+        this.studentCGPA = 0.00;
+        this.studentSemesters = 0;
         this.studyTime = "";
     }
-
-    public Student(String name, String surname, int studentID, double gpa, double cgpa, int semestersPassed) {
-        this.name = name;
-        this.surname = surname;
+    public Information(String firstName, String lastName, int studentID, double studentGPA, double studentCGPA, int studentSemesters, String studyTime) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.studentID = studentID;
-        this.gpa = gpa;
-        this.cgpa = cgpa;
-        this.semestersPassed = semestersPassed;
+        this.studentGPA = studentGPA;
+        this.studentCGPA = studentCGPA;
+        this.studentSemesters = studentSemesters;
+        this.studyTime = studyTime;
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getStudentID() {
         return studentID;
     }
 
-    public void setGPA(double gpa) {
-        this.gpa = gpa;
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
     }
 
-    public double getGPA() {
-        return gpa;
+    public double getStudentGPA() {
+        return studentGPA;
     }
 
-    public void setCGPA(double cgpa) {
-        this.cgpa = cgpa;
+    public void setStudentGPA(double studentGPA) {
+        this.studentGPA = studentGPA;
     }
 
-    public double getCGPA() {
-        return cgpa;
+    public double getStudentCGPA() {
+        return studentCGPA;
     }
 
-    public void setSemestersPassed(int semestersPassed) {
-        this.semestersPassed = semestersPassed;
+    public void setStudentCGPA(double studentCGPA) {
+        this.studentCGPA = studentCGPA;
     }
 
-    public int getSemestersPassed() {
-        return semestersPassed;
+    public int getStudentSemesters() {
+        return studentSemesters;
     }
 
-    public void setStudyTime(String studyTime) {
-        this.studyTime = studyTime;
+    public void setStudentSemesters(int studentSemesters) {
+        this.studentSemesters = studentSemesters;
     }
 
     public String getStudyTime() {
         return studyTime;
     }
 
+    public void setStudyTime(String studyTime) {
+        this.studyTime = studyTime;
+    }
+
+    abstract void studentHealth();
+    abstract void studentPsychologicalConditions();
+
+    @Override
+    public String toString() {
+        return
+                "First Name: " + firstName +
+                        "\nLast Name: " + lastName +
+                        "\nStudent ID: " + studentID +
+                        "\nStudent GPA: " + studentGPA +
+                        "\nStudent CGPA: " + studentCGPA +
+                        "\nNumber of Semesters Passed: " + studentSemesters +
+                        "\nStudy Time: " + studyTime;
+    }
+}
+class sportiveStudent extends Information{
+    public sportiveStudent(){
+        super();
+    }
+    public sportiveStudent(String firstName, String lastName, int studentID, int studentGPA, int studentCGPA, int studentSemesters, String studyTime){
+        super(firstName,lastName,studentID, studentGPA, studentCGPA, studentSemesters, studyTime);
+    }
+    public void studentHealth(){
+        System.out.println("Sportive Student Health: Healthy");
+    }
+
+    public void studentPsychologicalConditions(){
+        System.out.println("Sportive Student Psychological Conditions: Good");
+    }
+}
+
+class bookWorm extends Information{
+    public bookWorm(){
+        super();
+    }
+    public bookWorm(String firstName, String lastName, int studentID, int studentGPA, int studentCGPA, int studentSemesters, String studyTime) {
+        super(firstName,lastName,studentID, studentGPA, studentCGPA, studentSemesters, studyTime);
+    }
+    public void studentHealth(){
+        System.out.println("BookWorm Student Health: Healthy");
+    }
+
+    public void studentPsychologicalConditions(){
+        System.out.println("BookWorm Student Psychological Conditions: Exhausted");
+    }
+}
+
+class internationalStudent extends Information {
+    public internationalStudent() {
+        super();
+    }
+
+    public internationalStudent(String firstName, String lastName, int studentID, int studentGPA, int studentCGPA, int studentSemesters, String studyTime) {
+        super(firstName, lastName, studentID, studentGPA, studentCGPA, studentSemesters, studyTime);
+
+    }
+
     public void studentHealth() {
-        System.out.println("Student health method called");
+        System.out.println("International Student Health: Healthy");
     }
 
-    public void studentPsychological() {
-        System.out.println("Student psychological method called");
-    }
-}
-
-class SportiveStudent extends Student {
-    public SportiveStudent() {
-        super();
-    }
-
-    public SportiveStudent(String name, String surname, int studentID, double gpa, double cgpa, int semestersPassed) {
-        super(name, surname, studentID, gpa, cgpa, semestersPassed);
-    }
-
-    public void studyTime() {
-        System.out.println("Sportive Student study time method called");
+    public void studentPsychologicalConditions() {
+        System.out.println("International Student Psychological Conditions: Home Sick");
     }
 }
-
-class BookWorm extends Student {
-    public BookWorm() {
-        super();
-    }
-    public BookWorm(String name, String surname, int studentID, double gpa, double cgpa, int semestersPassed) {
-        super(name, surname, studentID, gpa, cgpa, semestersPassed);
-    }
-
-    public void studyTime() {
-        System.out.println("Bookworm Student study time method called");
-    }
-}
-
-class InternationalStudent extends Student {
-    public InternationalStudent() {
-        super();
-    }
-
-    public InternationalStudent(String name, String surname, int studentID, double gpa, double cgpa, int semestersPassed) {
-        super(name, surname, studentID, gpa, cgpa, semestersPassed);
-    }
-
-    public void studyTime() {
-        System.out.println("International Student study time method called");
-    }
-}
-
-class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        SportiveStudent sportStu = new SportiveStudent();
-        BookWorm bookWorm = new BookWorm();
-        InternationalStudent intStu = new InternationalStudent();
-        System.out.println("Enter sportive student name: ");
-        sportStu.setName(sc.nextLine());
-        System.out.println("Enter sportive student surname: ");
-        sportStu.setSurname(sc.nextLine());
-        System.out.println("Enter sportive student ID: ");
-        sportStu.setStudentID(sc.nextInt());
-        System.out.println("Enter sportive student GPA: ");
-        sportStu.setGPA(sc.nextDouble());
-        System.out.println("Enter sportive student CGPA: ");
-        sportStu.setCGPA(sc.nextDouble());
-        System.out.println("Enter sportive student semesters passed: ");
-        sportStu.setSemestersPassed(sc.nextInt());
-        sc.nextLine();
-        System.out.println("Enter sportive student study time: ");
-        sportStu.studyTime();
-        System.out.println("Sportive Student's name: " + sportStu.getName());
-        System.out.println("Sportive Student's surname: " + sportStu.getSurname());
-        System.out.println("Sportive Student's ID: " + sportStu.getStudentID());
-        System.out.println("Sportive Student's GPA: " + sportStu.getGPA());
-        System.out.println("Sportive Student's CGPA: " + sportStu.getCGPA());
-        System.out.println("Sportive Student's semesters passed: " + sportStu.getSemestersPassed());
-        System.out.println("Enter bookworm student name: ");
-        bookWorm.setName(sc.nextLine());
-        System.out.println("Enter bookworm student surname: ");
-        bookWorm.setSurname(sc.nextLine());
-        System.out.println("Enter bookworm student ID: ");
-        bookWorm.setStudentID(sc.nextInt());
-        System.out.println("Enter bookworm student GPA: ");
-        bookWorm.setGPA(sc.nextDouble());
-        System.out.println("Enter bookworm student CGPA: ");
-        bookWorm.setCGPA(sc.nextDouble());
-        System.out.println("Enter bookworm student semesters passed: ");
-        bookWorm.setSemestersPassed(sc.nextInt());
-        sc.nextLine();
-        System.out.println("Enter bookworm student study time: ");
-        bookWorm.studyTime();
-        System.out.println("Bookworm Student's name: " + bookWorm.getName());
-        System.out.println("Bookworm Student's surname: " + bookWorm.getSurname());
-        System.out.println("Bookworm Student's ID: " + bookWorm.getStudentID());
-        System.out.println("Bookworm Student's GPA: " + bookWorm.getGPA());
-        System.out.println("Bookworm Student's CGPA: " + bookWorm.getCGPA());
-        System.out.println("Bookworm Student's semesters passed: " + bookWorm.getSemestersPassed());
-
-        System.out.println("Enter international student name: ");
-        intStu.setName(sc.nextLine());
-        System.out.println("Enter international student surname: ");
-        intStu.setSurname(sc.nextLine());
-        System.out.println("Enter international student ID: ");
-        intStu.setStudentID(sc.nextInt());
-        System.out.println("Enter international student GPA: ");
-        intStu.setGPA(sc.nextDouble());
-        System.out.println("Enter international student CGPA: ");
-        intStu.setCGPA(sc.nextDouble());
-        System.out.println("Enter international student semesters passed: ");
-        intStu.setSemestersPassed(sc.nextInt());
-        sc.nextLine();
-        System.out.println("Enter international student study time: ");
-        intStu.studyTime();
-        System.out.println("International Student's name: " + intStu.getName());
-        System.out.println("International Student's surname: " + intStu.getSurname());
-        System.out.println("International Student's ID: " + intStu.getStudentID());
-        System.out.println("International Student's GPA: " + intStu.getGPA());
-        System.out.println("International Student's CGPA: " + intStu.getCGPA());
-        System.out.println("International Student's semesters passed: " + intStu.getSemestersPassed());
-        sc.close();
-    }
-}
-
