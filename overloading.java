@@ -13,7 +13,7 @@ class A {
     }
 
     void print(int i1){
-        System.out.println("print wiht one integer value" + i1);
+        System.out.println("print with one integer value" + i1);
     }
 
     void print(String s2, int i1){
