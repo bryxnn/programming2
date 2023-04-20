@@ -13,3 +13,4 @@
 5.5 given one linked list of a pet object, which code can be used to find and remove that pet from link list
 study how to remove something from link list
 
+stack, queue, binary tree, binary search, link list, linear search, selection sort, insertion sort
